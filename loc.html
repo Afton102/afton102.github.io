@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Подожди</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>Перенаправляем тебя</h1>
+		<script type="text/javascript">
+			//async function sleep(ms) {
+			 	//await new Promise(resolve => setTimeout(resolve, ms));
+				var params = window
+						    .location
+						    .search
+						    .replace('?','')
+						    .split('&')
+						    .reduce(
+						        function(p,e){
+						            var a = e.split('=');
+						            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+						            return p;
+						        },
+						        {}
+						    );
+							if(params['ref'])location.href = params['ref'];
+							else alert("Что-то пошло не так, извини(");
+			//}
+			//sleep(6000);
+			
+
+		</script>
+	</body>
+</html>
